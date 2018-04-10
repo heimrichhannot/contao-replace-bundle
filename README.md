@@ -1,9 +1,9 @@
 # Contao Replace Bundle
 
-![](https://img.shields.io/packagist/v/heimrichhannot/contao-bootstrap-hover-dropdown-bundle.svg)
-![](https://img.shields.io/packagist/dt/heimrichhannot/contao-bootstrap-hover-dropdown-bundle.svg)
-[![](https://img.shields.io/travis/heimrichhannot/contao-bootstrap-hover-dropdown-bundle/master.svg)](https://travis-ci.org/heimrichhannot/contao-bootstrap-hover-dropdown-bundle/)
-[![](https://img.shields.io/coveralls/heimrichhannot/contao-bootstrap-hover-dropdown-bundle/master.svg)](https://coveralls.io/github/heimrichhannot/contao-bootstrap-hover-dropdown-bundle)
+![](https://img.shields.io/packagist/v/heimrichhannot/contao-replace-bundle.svg)
+![](https://img.shields.io/packagist/dt/heimrichhannot/contao-replace-bundle.svg)
+[![](https://img.shields.io/travis/heimrichhannot/contao-replace-bundle/master.svg)](https://travis-ci.org/heimrichhannot/contao-replace-bundle/)
+[![](https://img.shields.io/coveralls/heimrichhannot/contao-replace-bundle/master.svg)](https://coveralls.io/github/heimrichhannot/contao-replace-bundle)
 
 Helper contao bundle to perform a regular expression search and replace on front end page.
 
