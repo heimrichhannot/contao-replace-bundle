@@ -1,0 +1,6 @@
+services:
+    huh.replace.listener.hooks:
+      class: HeimrichHannot\ReplaceBundle\EventListener\HookListener
+      public: true
+      arguments:
+        - "@contao.framework"

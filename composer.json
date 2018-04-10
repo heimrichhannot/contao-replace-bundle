@@ -1,0 +1,45 @@
+{
+  "name": "heimrichhannot/contao-replace-bundle",
+  "type": "contao-bundle",
+  "description":"Helper contao bundle to perform a regular expression search and replace on front end page.",
+  "keywords":["contao", "replace", "content-manipulation"],
+  "license": "LGPL-3.0-or-later",
+  "require": {
+    "php": "^7.1",
+    "symfony/framework-bundle": "^3.4",
+    "contao/core-bundle": "^4.4",
+    "heimrichhannot/contao-multi_column_editor": "^1.4"
+  },
+  "require-dev": {
+    "contao/test-case": "^1.1",
+    "contao/manager-plugin": "^2.0",
+    "friendsofphp/php-cs-fixer": "^2.2",
+    "phpunit/phpunit": ">=6.0 <6.5",
+    "php-http/guzzle6-adapter": "^1.1",
+    "php-http/message-factory": "^1.0.2",
+    "php-coveralls/php-coveralls": "^2.0",
+    "symfony/phpunit-bridge": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "HeimrichHannot\\ReplaceBundle\\": "src/"
+    },
+    "classmap": [
+      "src/"
+    ],
+    "exclude-from-classmap": [
+      "src/Resources/contao/config/",
+      "src/Resources/contao/dca/",
+      "src/Resources/contao/languages/",
+      "src/Resources/contao/templates/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "HeimrichHannot\\ReplaceBundle\\Test\\": "tests/"
+    }
+  },
+  "extra": {
+    "contao-manager-plugin": "HeimrichHannot\\ReplaceBundle\\ContaoManager\\Plugin"
+  }
+}
