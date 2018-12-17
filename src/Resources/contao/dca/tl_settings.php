@@ -42,4 +42,4 @@ $arrFields = [
     ]
 ];
 
-$dc['fields'] = array_merge($dca['fields'], $arrFields);
+$dca['fields'] = array_merge($dca['fields'], $arrFields);
