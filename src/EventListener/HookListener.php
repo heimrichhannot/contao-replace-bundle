@@ -9,6 +9,7 @@ namespace HeimrichHannot\ReplaceBundle\EventListener;
 
 use Contao\Config;
 use Contao\CoreBundle\Framework\ContaoFrameworkInterface;
+use Contao\StringUtil;
 
 class HookListener
 {
@@ -41,7 +42,16 @@ class HookListener
             return $buffer;
         }
 
-        $arrConfig = \Contao\StringUtil::deserialize(Config::get('replace'), true);
+        $arrConfig = StringUtil::deserialize(Config::get('replace'), true);
+
+        // mask esi tags, otherwise no body element is found
+        $buffer = preg_replace_callback(
+            '#<esi:((?!\/>).*)\s?\/>#sU',
+            function ($matches) {
+                return '####esi:open####'.str_replace('"', '#~~~#', StringUtil::specialchars($matches[1])).'####esi:close####';
+            },
+            $buffer
+        );
 
         preg_match('#(?<BTAG><body[^<]*>)(?<BCONTENT>.*)<\/body>#s', $buffer, $arrElements);
         if (!isset($arrElements['BTAG']) && !isset($arrElements['BCONTENT'])) {
