@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.3] - 2019-03-04
+
+#### Fixed
+- skip esi tag from replacement in production mode
+
 ## [1.0.2] - 2018-12-18
 
 #### Fixed

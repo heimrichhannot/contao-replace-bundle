@@ -73,6 +73,14 @@ class HookListener
 
         $buffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strTag.$strBody.'</body>', $buffer);
 
+	$buffer = preg_replace_callback(
+            '/####esi:open####(.*)####esi:close####/',
+            function ($matches) {
+                return '<esi:'.str_replace('#~~~#', '"', StringUtil::decodeEntities($matches[1])).'/>';
+            },
+            $buffer
+        );
+
         return $buffer;
     }
 }
