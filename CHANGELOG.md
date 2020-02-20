@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.0.4] - 2020-02-20
+- fixed error with esi tags when url contains to be replaced words
+
 ## [1.0.3] - 2019-03-04
 
 #### Fixed

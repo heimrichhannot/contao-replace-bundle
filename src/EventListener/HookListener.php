@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (c) 2018 Heimrich & Hannot GmbH
+ * Copyright (c) 2020 Heimrich & Hannot GmbH
  * @license LGPL-3.0-or-later
  */
 
@@ -44,11 +44,17 @@ class HookListener
 
         $arrConfig = StringUtil::deserialize(Config::get('replace'), true);
 
+        $esiTagCache = [];
+        $esiTagCacheIndex = 0;
+
         // mask esi tags, otherwise no body element is found
         $buffer = preg_replace_callback(
             '#<esi:((?!\/>).*)\s?\/>#sU',
-            function ($matches) {
-                return '####esi:open####'.str_replace('"', '#~~~#', StringUtil::specialchars($matches[1])).'####esi:close####';
+            function ($matches) use (&$esiTagCache, &$esiTagCacheIndex) {
+                $esiTagCache[$esiTagCacheIndex] = $matches[0];
+                ++$esiTagCacheIndex;
+
+                return '####esi:open####'.($esiTagCacheIndex - 1).'####esi:close####';
             },
             $buffer
         );
@@ -68,15 +74,18 @@ class HookListener
                 $search .= '(?![^<]*>)';  // ignore html tags
             }
             $search .= '#sU'; // single line & ungreedy match
+            $matches = [];
+            preg_match($search, $strBody, $matches);
+
             $strBody = preg_replace($search, $config['replace'], $strBody);
         }
 
         $buffer = preg_replace('#<body[^<]*>(?<BCONTENT>.*)<\/body>#s', $strTag.$strBody.'</body>', $buffer);
 
-	$buffer = preg_replace_callback(
+        $buffer = preg_replace_callback(
             '/####esi:open####(.*)####esi:close####/',
-            function ($matches) {
-                return '<esi:'.str_replace('#~~~#', '"', StringUtil::decodeEntities($matches[1])).'/>';
+            function ($matches) use ($esiTagCache) {
+                return $esiTagCache[$matches[1]];
             },
             $buffer
         );
