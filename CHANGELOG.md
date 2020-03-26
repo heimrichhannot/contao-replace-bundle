@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2020-03-26
+- made bundle compatible with contao 4.9
+- replaced multi column editor module with bundle dependency
+- update symfony dependency
+
 ## [1.0.4] - 2020-02-20
 - fixed error with esi tags when url contains to be replaced words
 
