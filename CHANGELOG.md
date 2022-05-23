@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2022-05-23
+- Changed: allow php 8
+- Changed: allow symfony 5
+
 ## [1.1.0] - 2020-03-26
 - made bundle compatible with contao 4.9
 - replaced multi column editor module with bundle dependency
