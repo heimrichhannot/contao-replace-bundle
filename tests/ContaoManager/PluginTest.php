@@ -69,7 +69,7 @@ class PluginTest extends ContaoTestCase
      *
      * @return PluginLoader|\PHPUnit_Framework_MockObject_MockObject
      */
-    private function mockPluginLoader(\PHPUnit_Framework_MockObject_Matcher_InvokedCount $expects, array $plugins = [])
+    private function mockPluginLoader(mixed $expects, array $plugins = [])
     {
         $pluginLoader = $this->createMock(PluginLoader::class);
 
