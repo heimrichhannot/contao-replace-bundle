@@ -8,25 +8,11 @@
 namespace HeimrichHannot\ReplaceBundle\EventListener;
 
 use Contao\Config;
-use Contao\CoreBundle\Framework\ContaoFrameworkInterface;
 use Contao\StringUtil;
 
 class HookListener
 {
-    /**
-     * @var ContaoFrameworkInterface
-     */
-    private $framework;
-
-    /**
-     * Constructor.
-     *
-     * @param ContaoFrameworkInterface $framework
-     */
-    public function __construct(ContaoFrameworkInterface $framework)
-    {
-        $this->framework = $framework;
-    }
+    public function __construct() {}
 
     /**
      * Modify the front end template output buffer.

@@ -5,10 +5,10 @@
   "keywords":["contao", "replace", "content-manipulation"],
   "license": "LGPL-3.0-or-later",
   "require": {
-    "php": "^7.1 || ^8.0",
-    "contao/core-bundle": "^4.4",
+    "php": "^7.4 || ^8.0",
+    "contao/core-bundle": "^4.13 || ^5.0",
     "heimrichhannot/contao-multi-column-editor-bundle": "^1.2 || ^2.4",
-    "symfony/dependency-injection": "^3.4 || ^4.4 || ^5.4"
+    "symfony/dependency-injection": "^4.4 || ^5.4 || ^6.0"
   },
   "require-dev": {
     "contao/test-case": "^1.1",
